@@ -1,0 +1,216 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://spritesheet.png" type="Texture" id=1]
+[ext_resource path="res://ui/Health.gd" type="Script" id=2]
+[ext_resource path="res://ui/RoundLabel.gd" type="Script" id=3]
+[ext_resource path="res://ui/MoneyUpdate.gd" type="Script" id=4]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ SubResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 2 ) ],
+"loop": true,
+"name": "hwire",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 3 ) ],
+"loop": true,
+"name": "vwire",
+"speed": 5.0
+} ]
+
+[node name="GUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_scale = Vector2( 0.25, 0.25 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WaveManagement" type="HBoxContainer" parent="MarginContainer"]
+margin_right = 1366.0
+margin_bottom = 74.0
+alignment = 1
+
+[node name="Next Round" type="Button" parent="MarginContainer/WaveManagement"]
+margin_left = 677.0
+margin_right = 689.0
+margin_bottom = 74.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MarginContainer/WaveManagement/Next Round"]
+margin_left = 14.5319
+margin_top = 7.14673
+margin_right = 198.966
+margin_bottom = 82.2827
+rect_scale = Vector2( 2, 2 )
+text = "Next 
+Wave"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MapManagement" type="HBoxContainer" parent="MarginContainer"]
+margin_right = 1366.0
+margin_bottom = 74.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MapManagement"]
+margin_right = 51.0
+margin_bottom = 74.0
+
+[node name="Money" type="Label" parent="MarginContainer/MapManagement/VBoxContainer"]
+margin_right = 51.0
+margin_bottom = 14.0
+size_flags_stretch_ratio = 0.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Money: "
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Round" type="Label" parent="MarginContainer/MapManagement/VBoxContainer"]
+margin_top = 18.0
+margin_right = 51.0
+margin_bottom = 32.0
+size_flags_stretch_ratio = 0.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Wave:"
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Health" type="Label" parent="MarginContainer/MapManagement/VBoxContainer"]
+margin_top = 36.0
+margin_right = 51.0
+margin_bottom = 50.0
+size_flags_stretch_ratio = 0.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "HP: "
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BuildButton" type="Button" parent="MarginContainer/MapManagement/VBoxContainer"]
+margin_top = 54.0
+margin_right = 51.0
+margin_bottom = 74.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MarginContainer/MapManagement/VBoxContainer/BuildButton"]
+margin_left = 10.5319
+margin_top = 7.14673
+margin_right = 194.966
+margin_bottom = 82.2827
+rect_scale = Vector2( 2, 2 )
+text = "Connection Mode"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Play" type="Container" parent="MarginContainer"]
+margin_right = 1366.0
+margin_bottom = 74.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Build" type="Container" parent="MarginContainer"]
+visible = false
+margin_right = 1366.0
+margin_bottom = 74.0
+
+[node name="Turrets" type="Button" parent="MarginContainer/Build"]
+anchor_left = -3.86993
+anchor_top = -3.169
+anchor_right = -3.86993
+anchor_bottom = -3.169
+margin_left = -20.1608
+margin_top = -8.23807
+margin_right = 79.8392
+margin_bottom = 71.7619
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="MarginContainer/Build/Turrets"]
+position = Vector2( 61.5927, 51.5808 )
+scale = Vector2( 3.30501, 2.92085 )
+frames = SubResource( 4 )
+
+[node name="Label" type="Label" parent="MarginContainer/Build/Turrets"]
+margin_left = 10.5319
+margin_top = 7.14673
+margin_right = 194.966
+margin_bottom = 82.2827
+rect_scale = Vector2( 2, 2 )
+text = "Turret
+£5"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Wires" type="Button" parent="MarginContainer/Build"]
+anchor_left = -0.76993
+anchor_top = -3.169
+anchor_right = -0.76993
+anchor_bottom = -3.169
+margin_left = -20.1608
+margin_top = -8.23807
+margin_right = 79.8392
+margin_bottom = 71.7619
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="MarginContainer/Build/Wires"]
+position = Vector2( 73.5927, 55.5808 )
+scale = Vector2( 3.30501, 2.92085 )
+frames = SubResource( 4 )
+animation = "hwire"
+
+[node name="Label" type="Label" parent="MarginContainer/Build/Wires"]
+margin_left = 10.5319
+margin_top = 7.14673
+margin_right = 194.966
+margin_bottom = 82.2827
+rect_scale = Vector2( 2, 2 )
+text = "Wires
+£1"
+__meta__ = {
+"_edit_use_anchors_": false
+}

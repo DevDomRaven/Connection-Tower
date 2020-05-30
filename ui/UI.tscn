@@ -1,0 +1,330 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://ui/spirtes/score-sign.png" type="Texture" id=1]
+[ext_resource path="res://ui/spirtes/money-sign.png" type="Texture" id=2]
+[ext_resource path="res://Raleway-Light.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://ui/spirtes/bg.png" type="Texture" id=4]
+[ext_resource path="res://ui/spirtes/button/50x50-498a00.png" type="Texture" id=5]
+[ext_resource path="res://ui/spirtes/button/50x50-498a00-hovered.png" type="Texture" id=6]
+[ext_resource path="res://ui/spirtes/button/50x50-498a00-clicked.png" type="Texture" id=7]
+[ext_resource path="res://ui/UI.gd" type="Script" id=8]
+[ext_resource path="res://ui/spirtes/object_ref/turret01.png" type="Texture" id=9]
+[ext_resource path="res://ui/spirtes/object_ref/wires.png" type="Texture" id=10]
+[ext_resource path="res://ui/spirtes/button/50x50-disabled.png" type="Texture" id=11]
+[ext_resource path="res://ui/BuildButton.gd" type="Script" id=12]
+
+[sub_resource type="DynamicFont" id=1]
+size = 13
+use_mipmaps = true
+extra_spacing_char = 1
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 11 )
+region_rect = Rect2( 0, 0, 80, 80 )
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 80, 80 )
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 80, 80 )
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 80, 80 )
+
+[sub_resource type="DynamicFont" id=6]
+font_data = ExtResource( 3 )
+
+[sub_resource type="Theme" id=7]
+default_font = SubResource( 6 )
+Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/constants/hseparation = 2
+Button/fonts/font = null
+Button/styles/disabled = SubResource( 2 )
+Button/styles/focus = null
+Button/styles/hover = SubResource( 3 )
+Button/styles/normal = SubResource( 4 )
+Button/styles/pressed = SubResource( 5 )
+
+[sub_resource type="DynamicFont" id=8]
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 12
+font_data = ExtResource( 3 )
+
+[node name="GUI" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TopMenu" type="VBoxContainer" parent="."]
+margin_right = 1280.0
+margin_bottom = 720.0
+
+[node name="MarginContainer" type="MarginContainer" parent="TopMenu"]
+margin_right = 1280.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 40 )
+
+[node name="ColorRect" type="ColorRect" parent="TopMenu/MarginContainer"]
+margin_right = 1280.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 40 )
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+
+[node name="Left" type="HBoxContainer" parent="TopMenu/MarginContainer"]
+margin_right = 1280.0
+margin_bottom = 50.0
+custom_constants/separation = 40
+
+[node name="Bars" type="VBoxContainer" parent="TopMenu/MarginContainer/Left"]
+margin_right = 100.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 100, 0 )
+custom_constants/separation = 0
+
+[node name="Money" type="VBoxContainer" parent="TopMenu/MarginContainer/Left/Bars"]
+margin_right = 100.0
+margin_bottom = 22.0
+
+[node name="MarginContainer" type="MarginContainer" parent="TopMenu/MarginContainer/Left/Bars/Money"]
+margin_right = 100.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 0, 22 )
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+
+[node name="Background" type="NinePatchRect" parent="TopMenu/MarginContainer/Left/Bars/Money/MarginContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 100.0
+margin_bottom = 22.0
+texture = ExtResource( 4 )
+region_rect = Rect2( 2, -1, 497, 201 )
+
+[node name="Number" type="Label" parent="TopMenu/MarginContainer/Left/Bars/Money/MarginContainer/Background"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -22.8368
+margin_top = -9.0
+margin_right = -0.836769
+margin_bottom = 8.0
+custom_fonts/font = SubResource( 1 )
+text = "12"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="TextureRect" parent="TopMenu/MarginContainer/Left/Bars/Money/MarginContainer/Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -32.7542
+margin_top = -13.2255
+margin_right = -32.7542
+margin_bottom = 8.77443
+rect_min_size = Vector2( 10, 20 )
+rect_scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 2 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="VBoxContainer" parent="TopMenu/MarginContainer/Left/Bars"]
+margin_top = 22.0
+margin_right = 100.0
+margin_bottom = 44.0
+
+[node name="MarginContainer" type="MarginContainer" parent="TopMenu/MarginContainer/Left/Bars/Score"]
+margin_right = 100.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 0, 22 )
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+
+[node name="Background" type="NinePatchRect" parent="TopMenu/MarginContainer/Left/Bars/Score/MarginContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 100.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 50, 10 )
+texture = ExtResource( 4 )
+region_rect = Rect2( 2, -1, 497, 201 )
+
+[node name="Number" type="Label" parent="TopMenu/MarginContainer/Left/Bars/Score/MarginContainer/Background"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -22.8368
+margin_top = -9.0
+margin_right = -0.836769
+margin_bottom = 8.0
+custom_fonts/font = SubResource( 1 )
+text = "12"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="TextureRect" parent="TopMenu/MarginContainer/Left/Bars/Score/MarginContainer/Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -32.7542
+margin_top = -11.3015
+margin_right = -32.7542
+margin_bottom = 10.6985
+rect_min_size = Vector2( 10, 20 )
+rect_scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 1 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Buttons" type="HBoxContainer" parent="TopMenu/MarginContainer/Left"]
+margin_left = 140.0
+margin_right = 348.0
+margin_bottom = 50.0
+
+[node name="Button" type="VBoxContainer" parent="TopMenu/MarginContainer/Left/Buttons"]
+margin_right = 100.0
+margin_bottom = 50.0
+
+[node name="MarginContainer" type="MarginContainer" parent="TopMenu/MarginContainer/Left/Buttons/Button"]
+margin_right = 100.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 100, 0 )
+
+[node name="Build" type="Button" parent="TopMenu/MarginContainer/Left/Buttons/Button/MarginContainer"]
+margin_right = 100.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+theme = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
+text = "Build"
+script = ExtResource( 12 )
+
+[node name="Toolbox" type="HBoxContainer" parent="TopMenu/MarginContainer/Left/Buttons"]
+margin_left = 104.0
+margin_right = 208.0
+margin_bottom = 50.0
+
+[node name="MarginContainer" type="MarginContainer" parent="TopMenu/MarginContainer/Left/Buttons/Toolbox"]
+margin_right = 104.0
+margin_bottom = 50.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="TopMenu/MarginContainer/Left/Buttons/Toolbox/MarginContainer"]
+margin_right = 104.0
+margin_bottom = 50.0
+texture = ExtResource( 4 )
+
+[node name="Buttons" type="HBoxContainer" parent="TopMenu/MarginContainer/Left/Buttons/Toolbox/MarginContainer"]
+margin_right = 104.0
+margin_bottom = 50.0
+
+[node name="Turret01" type="VBoxContainer" parent="TopMenu/MarginContainer/Left/Buttons/Toolbox/MarginContainer/Buttons"]
+margin_right = 50.0
+margin_bottom = 50.0
+
+[node name="Button" type="Button" parent="TopMenu/MarginContainer/Left/Buttons/Toolbox/MarginContainer/Buttons/Turret01"]
+margin_right = 50.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+icon = ExtResource( 9 )
+clip_text = true
+expand_icon = true
+
+[node name="Label2" type="Label" parent="TopMenu/MarginContainer/Left/Buttons/Toolbox/MarginContainer/Buttons/Turret01/Button"]
+margin_top = 35.0
+margin_right = 50.0
+margin_bottom = 55.0
+custom_fonts/font = SubResource( 9 )
+text = "Turret
+"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Wires" type="VBoxContainer" parent="TopMenu/MarginContainer/Left/Buttons/Toolbox/MarginContainer/Buttons"]
+margin_left = 54.0
+margin_right = 104.0
+margin_bottom = 50.0
+
+[node name="Button" type="Button" parent="TopMenu/MarginContainer/Left/Buttons/Toolbox/MarginContainer/Buttons/Wires"]
+margin_right = 50.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+icon = ExtResource( 10 )
+clip_text = true
+expand_icon = true
+
+[node name="Label" type="Label" parent="TopMenu/MarginContainer/Left/Buttons/Toolbox/MarginContainer/Buttons/Wires/Button"]
+margin_left = -1.0
+margin_top = 35.0
+margin_right = 49.0
+margin_bottom = 55.0
+custom_fonts/font = SubResource( 9 )
+text = "Wires"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Right" type="HBoxContainer" parent="TopMenu/MarginContainer"]
+margin_right = 1280.0
+margin_bottom = 50.0
+custom_constants/separation = 40
+alignment = 2
+
+[node name="Buttons" type="HBoxContainer" parent="TopMenu/MarginContainer/Right"]
+margin_left = 1180.0
+margin_right = 1280.0
+margin_bottom = 50.0
+
+[node name="Button" type="VBoxContainer" parent="TopMenu/MarginContainer/Right/Buttons"]
+margin_right = 100.0
+margin_bottom = 50.0
+
+[node name="MarginContainer" type="MarginContainer" parent="TopMenu/MarginContainer/Right/Buttons/Button"]
+margin_right = 100.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 100, 0 )
+
+[node name="Build" type="Button" parent="TopMenu/MarginContainer/Right/Buttons/Button/MarginContainer"]
+margin_right = 100.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+theme = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
+text = "Next Wave"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+visible = false
+margin_right = 1280.0
+margin_bottom = 720.0
+rect_min_size = Vector2( 200, 100 )
+custom_constants/separation = 20
+
+[node name="Counters" type="HBoxContainer" parent="HBoxContainer"]
+margin_left = 120.0
+margin_right = 120.0
+margin_bottom = 768.0
+[connection signal="button_down" from="TopMenu/MarginContainer/Left/Buttons/Button/MarginContainer/Build" to="." method="_on_Build_button_down"]
+[connection signal="button_down" from="TopMenu/MarginContainer/Right/Buttons/Button/MarginContainer/Build" to="." method="_on_NextWave_button_down"]

@@ -1,0 +1,29 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://anim/power_station_anim/powerstation_idle1.png" type="Texture" id=1]
+[ext_resource path="res://objects/PowerStation.gd" type="Script" id=2]
+[ext_resource path="res://anim/power_station_anim/powerstation_idle2.png" type="Texture" id=3]
+[ext_resource path="res://anim/power_station_anim/powerstation_idle3.png" type="Texture" id=4]
+[ext_resource path="res://anim/power_station_anim/powerstation_idle4.png" type="Texture" id=5]
+[ext_resource path="res://anim/power_station_anim/powerstation_idle5.png" type="Texture" id=6]
+[ext_resource path="res://anim/power_station_anim/powerstation_idle6.png" type="Texture" id=7]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 8.0
+} ]
+
+[node name="PowerStation" type="Node2D"]
+position = Vector2( -136, -56 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+frame = 5
+playing = true
