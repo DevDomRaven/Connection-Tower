@@ -32,7 +32,7 @@ func _unhandled_input(event):
 				if turrets.has(tile):
 					print(turrets[tile].name)
 					
-				var selection = get_parent().current_selection
+				var selection = GameSettings.build_selection
 				if selection != null:
 					var purchesed = false
 					

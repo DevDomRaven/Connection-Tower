@@ -82,29 +82,34 @@ margin_bottom = 50.0
 rect_min_size = Vector2( 0, 40 )
 color = Color( 0.152941, 0.152941, 0.152941, 1 )
 
-[node name="Left" type="HBoxContainer" parent="TopMenu/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="TopMenu/MarginContainer"]
 margin_right = 1280.0
 margin_bottom = 50.0
-custom_constants/separation = 40
 
-[node name="Bars" type="VBoxContainer" parent="TopMenu/MarginContainer/Left"]
+[node name="Left" type="HBoxContainer" parent="TopMenu/MarginContainer/HBoxContainer"]
+margin_right = 240.0
+margin_bottom = 50.0
+custom_constants/separation = 40
+alignment = 2
+
+[node name="Bars" type="VBoxContainer" parent="TopMenu/MarginContainer/HBoxContainer/Left"]
 margin_right = 100.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 100, 0 )
 custom_constants/separation = 0
 
-[node name="Money" type="VBoxContainer" parent="TopMenu/MarginContainer/Left/Bars"]
+[node name="Money" type="VBoxContainer" parent="TopMenu/MarginContainer/HBoxContainer/Left/Bars"]
 margin_right = 100.0
 margin_bottom = 22.0
 
-[node name="MarginContainer" type="MarginContainer" parent="TopMenu/MarginContainer/Left/Bars/Money"]
+[node name="MarginContainer" type="MarginContainer" parent="TopMenu/MarginContainer/HBoxContainer/Left/Bars/Money"]
 margin_right = 100.0
 margin_bottom = 22.0
 rect_min_size = Vector2( 0, 22 )
 custom_constants/margin_top = 5
 custom_constants/margin_left = 5
 
-[node name="Background" type="NinePatchRect" parent="TopMenu/MarginContainer/Left/Bars/Money/MarginContainer"]
+[node name="Background" type="NinePatchRect" parent="TopMenu/MarginContainer/HBoxContainer/Left/Bars/Money/MarginContainer"]
 margin_left = 5.0
 margin_top = 5.0
 margin_right = 100.0
@@ -112,7 +117,7 @@ margin_bottom = 22.0
 texture = ExtResource( 4 )
 region_rect = Rect2( 2, -1, 497, 201 )
 
-[node name="Number" type="Label" parent="TopMenu/MarginContainer/Left/Bars/Money/MarginContainer/Background"]
+[node name="Number" type="Label" parent="TopMenu/MarginContainer/HBoxContainer/Left/Bars/Money/MarginContainer/Background"]
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
@@ -129,7 +134,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Title" type="TextureRect" parent="TopMenu/MarginContainer/Left/Bars/Money/MarginContainer/Background"]
+[node name="Title" type="TextureRect" parent="TopMenu/MarginContainer/HBoxContainer/Left/Bars/Money/MarginContainer/Background"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -32.7542
@@ -144,19 +149,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Score" type="VBoxContainer" parent="TopMenu/MarginContainer/Left/Bars"]
+[node name="Score" type="VBoxContainer" parent="TopMenu/MarginContainer/HBoxContainer/Left/Bars"]
 margin_top = 22.0
 margin_right = 100.0
 margin_bottom = 44.0
 
-[node name="MarginContainer" type="MarginContainer" parent="TopMenu/MarginContainer/Left/Bars/Score"]
+[node name="MarginContainer" type="MarginContainer" parent="TopMenu/MarginContainer/HBoxContainer/Left/Bars/Score"]
 margin_right = 100.0
 margin_bottom = 22.0
 rect_min_size = Vector2( 0, 22 )
 custom_constants/margin_top = 5
 custom_constants/margin_left = 5
 
-[node name="Background" type="NinePatchRect" parent="TopMenu/MarginContainer/Left/Bars/Score/MarginContainer"]
+[node name="Background" type="NinePatchRect" parent="TopMenu/MarginContainer/HBoxContainer/Left/Bars/Score/MarginContainer"]
 margin_left = 5.0
 margin_top = 5.0
 margin_right = 100.0
@@ -165,7 +170,7 @@ rect_min_size = Vector2( 50, 10 )
 texture = ExtResource( 4 )
 region_rect = Rect2( 2, -1, 497, 201 )
 
-[node name="Number" type="Label" parent="TopMenu/MarginContainer/Left/Bars/Score/MarginContainer/Background"]
+[node name="Number" type="Label" parent="TopMenu/MarginContainer/HBoxContainer/Left/Bars/Score/MarginContainer/Background"]
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
@@ -182,7 +187,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Title" type="TextureRect" parent="TopMenu/MarginContainer/Left/Bars/Score/MarginContainer/Background"]
+[node name="Title" type="TextureRect" parent="TopMenu/MarginContainer/HBoxContainer/Left/Bars/Score/MarginContainer/Background"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -32.7542
@@ -197,21 +202,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Buttons" type="HBoxContainer" parent="TopMenu/MarginContainer/Left"]
+[node name="Buttons" type="HBoxContainer" parent="TopMenu/MarginContainer/HBoxContainer/Left"]
 margin_left = 140.0
-margin_right = 348.0
+margin_right = 240.0
 margin_bottom = 50.0
 
-[node name="Button" type="VBoxContainer" parent="TopMenu/MarginContainer/Left/Buttons"]
+[node name="Button" type="VBoxContainer" parent="TopMenu/MarginContainer/HBoxContainer/Left/Buttons"]
 margin_right = 100.0
 margin_bottom = 50.0
 
-[node name="MarginContainer" type="MarginContainer" parent="TopMenu/MarginContainer/Left/Buttons/Button"]
+[node name="MarginContainer" type="MarginContainer" parent="TopMenu/MarginContainer/HBoxContainer/Left/Buttons/Button"]
 margin_right = 100.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 100, 0 )
 
-[node name="Build" type="Button" parent="TopMenu/MarginContainer/Left/Buttons/Button/MarginContainer"]
+[node name="Build" type="Button" parent="TopMenu/MarginContainer/HBoxContainer/Left/Buttons/Button/MarginContainer"]
 margin_right = 100.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 50, 50 )
@@ -220,29 +225,30 @@ custom_fonts/font = SubResource( 8 )
 text = "Build"
 script = ExtResource( 12 )
 
-[node name="Toolbox" type="HBoxContainer" parent="TopMenu/MarginContainer/Left/Buttons"]
+[node name="Toolbox" type="HBoxContainer" parent="TopMenu/MarginContainer/HBoxContainer/Left/Buttons"]
+visible = false
 margin_left = 104.0
 margin_right = 208.0
 margin_bottom = 50.0
 
-[node name="MarginContainer" type="MarginContainer" parent="TopMenu/MarginContainer/Left/Buttons/Toolbox"]
+[node name="MarginContainer" type="MarginContainer" parent="TopMenu/MarginContainer/HBoxContainer/Left/Buttons/Toolbox"]
 margin_right = 104.0
 margin_bottom = 50.0
 
-[node name="NinePatchRect" type="NinePatchRect" parent="TopMenu/MarginContainer/Left/Buttons/Toolbox/MarginContainer"]
+[node name="NinePatchRect" type="NinePatchRect" parent="TopMenu/MarginContainer/HBoxContainer/Left/Buttons/Toolbox/MarginContainer"]
 margin_right = 104.0
 margin_bottom = 50.0
 texture = ExtResource( 4 )
 
-[node name="Buttons" type="HBoxContainer" parent="TopMenu/MarginContainer/Left/Buttons/Toolbox/MarginContainer"]
+[node name="Buttons" type="HBoxContainer" parent="TopMenu/MarginContainer/HBoxContainer/Left/Buttons/Toolbox/MarginContainer"]
 margin_right = 104.0
 margin_bottom = 50.0
 
-[node name="Turret01" type="VBoxContainer" parent="TopMenu/MarginContainer/Left/Buttons/Toolbox/MarginContainer/Buttons"]
+[node name="Turret01" type="VBoxContainer" parent="TopMenu/MarginContainer/HBoxContainer/Left/Buttons/Toolbox/MarginContainer/Buttons"]
 margin_right = 50.0
 margin_bottom = 50.0
 
-[node name="Button" type="Button" parent="TopMenu/MarginContainer/Left/Buttons/Toolbox/MarginContainer/Buttons/Turret01"]
+[node name="Turret01" type="Button" parent="TopMenu/MarginContainer/HBoxContainer/Left/Buttons/Toolbox/MarginContainer/Buttons/Turret01"]
 margin_right = 50.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 50, 50 )
@@ -250,7 +256,7 @@ icon = ExtResource( 9 )
 clip_text = true
 expand_icon = true
 
-[node name="Label2" type="Label" parent="TopMenu/MarginContainer/Left/Buttons/Toolbox/MarginContainer/Buttons/Turret01/Button"]
+[node name="Label2" type="Label" parent="TopMenu/MarginContainer/HBoxContainer/Left/Buttons/Toolbox/MarginContainer/Buttons/Turret01/Turret01"]
 margin_top = 35.0
 margin_right = 50.0
 margin_bottom = 55.0
@@ -262,12 +268,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Wires" type="VBoxContainer" parent="TopMenu/MarginContainer/Left/Buttons/Toolbox/MarginContainer/Buttons"]
+[node name="Wires" type="VBoxContainer" parent="TopMenu/MarginContainer/HBoxContainer/Left/Buttons/Toolbox/MarginContainer/Buttons"]
 margin_left = 54.0
 margin_right = 104.0
 margin_bottom = 50.0
 
-[node name="Button" type="Button" parent="TopMenu/MarginContainer/Left/Buttons/Toolbox/MarginContainer/Buttons/Wires"]
+[node name="Wires" type="Button" parent="TopMenu/MarginContainer/HBoxContainer/Left/Buttons/Toolbox/MarginContainer/Buttons/Wires"]
 margin_right = 50.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 50, 50 )
@@ -275,7 +281,7 @@ icon = ExtResource( 10 )
 clip_text = true
 expand_icon = true
 
-[node name="Label" type="Label" parent="TopMenu/MarginContainer/Left/Buttons/Toolbox/MarginContainer/Buttons/Wires/Button"]
+[node name="Label" type="Label" parent="TopMenu/MarginContainer/HBoxContainer/Left/Buttons/Toolbox/MarginContainer/Buttons/Wires/Wires"]
 margin_left = -1.0
 margin_top = 35.0
 margin_right = 49.0
@@ -287,27 +293,26 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Right" type="HBoxContainer" parent="TopMenu/MarginContainer"]
-margin_right = 1280.0
+[node name="Right" type="HBoxContainer" parent="TopMenu/MarginContainer/HBoxContainer"]
+margin_left = 244.0
+margin_right = 344.0
 margin_bottom = 50.0
 custom_constants/separation = 40
-alignment = 2
 
-[node name="Buttons" type="HBoxContainer" parent="TopMenu/MarginContainer/Right"]
-margin_left = 1180.0
-margin_right = 1280.0
-margin_bottom = 50.0
-
-[node name="Button" type="VBoxContainer" parent="TopMenu/MarginContainer/Right/Buttons"]
+[node name="Buttons" type="HBoxContainer" parent="TopMenu/MarginContainer/HBoxContainer/Right"]
 margin_right = 100.0
 margin_bottom = 50.0
 
-[node name="MarginContainer" type="MarginContainer" parent="TopMenu/MarginContainer/Right/Buttons/Button"]
+[node name="Button" type="VBoxContainer" parent="TopMenu/MarginContainer/HBoxContainer/Right/Buttons"]
+margin_right = 100.0
+margin_bottom = 50.0
+
+[node name="MarginContainer" type="MarginContainer" parent="TopMenu/MarginContainer/HBoxContainer/Right/Buttons/Button"]
 margin_right = 100.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 100, 0 )
 
-[node name="Build" type="Button" parent="TopMenu/MarginContainer/Right/Buttons/Button/MarginContainer"]
+[node name="Build" type="Button" parent="TopMenu/MarginContainer/HBoxContainer/Right/Buttons/Button/MarginContainer"]
 margin_right = 100.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 50, 50 )
@@ -326,5 +331,7 @@ custom_constants/separation = 20
 margin_left = 120.0
 margin_right = 120.0
 margin_bottom = 768.0
-[connection signal="button_down" from="TopMenu/MarginContainer/Left/Buttons/Button/MarginContainer/Build" to="." method="_on_Build_button_down"]
-[connection signal="button_down" from="TopMenu/MarginContainer/Right/Buttons/Button/MarginContainer/Build" to="." method="_on_NextWave_button_down"]
+[connection signal="button_down" from="TopMenu/MarginContainer/HBoxContainer/Left/Buttons/Button/MarginContainer/Build" to="." method="_on_Build_button_down"]
+[connection signal="button_down" from="TopMenu/MarginContainer/HBoxContainer/Left/Buttons/Toolbox/MarginContainer/Buttons/Turret01/Turret01" to="." method="_on_Turret01_button_down"]
+[connection signal="button_down" from="TopMenu/MarginContainer/HBoxContainer/Left/Buttons/Toolbox/MarginContainer/Buttons/Wires/Wires" to="." method="_on_Wires_button_down"]
+[connection signal="button_down" from="TopMenu/MarginContainer/HBoxContainer/Right/Buttons/Button/MarginContainer/Build" to="." method="_on_NextWave_button_down"]

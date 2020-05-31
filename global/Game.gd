@@ -5,6 +5,7 @@ var health = 100
 var current_wave = 1
 var in_round = false
 var build_menu = false
+var build_selection = 0
 
 func _ready():
 	pass # Replace with function body.
